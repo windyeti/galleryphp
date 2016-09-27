@@ -26,42 +26,5 @@ if(!isset($_SESSION['name']) || !isset($_SESSION['count']))
 	<div class="forma__submit"><input type="submit" name="submit" class="forma__submit__button" value="Отправить"></div>
 </form>
 <div class="result"></div>
-<script src="js/jquery-2.1.4.js"></script>
-<script>
-// $(function() {
-// 	$('.forma__submit__button').click(function(e) {
-// 		// e.preventDefault();
-// 		var dataform = {};
-// 		var result = '';
-// 		var fields = $('.forma [name="firstname"], .forma [name="email"], .forma [name="photo"]');
-// 		fields.each(function(ndx, elem) {
-// 			dataform[$(elem).attr('name')] = $(elem).val();
-// 			result += '<div>'+$(elem).attr('name')+' : '+$(elem).val()+'</div>';
-// 		});
-// 		console.log(dataform);
-// 		$('.result').html(result);
-
-// 		var data = JSON.stringify(dataform);
-// 		console.log(data);
-
-// 		$.ajax({
-// 			url : 'php/upload.php',
-// 			type : 'post',
-// 			data : {
-// 				data : data
-// 				},
-// 			success : function(result) {
-// 				$('.result').html( $('.result').html()+'<div>Все ушло</div>' )
-// 			},
-// 			error : function(err) {
-// 				console.log(err.message);
-
-// 			},
-// 			dataType: 'json'
-// 		});
-// 	return false;	
-// 	});
-// });
-</script>
 </body>
 </html>
