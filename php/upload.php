@@ -1,4 +1,9 @@
 <?php
+namespace abeautifulsite;
+use Exception;
+
+require '../lib/SimpleImage/src/abeautifulsite/SimpleImage.php';
+
 if(empty($_POST) || empty($_FILES)) {
 	print_r($_POST);
 	print_r($_FILES);
@@ -45,5 +50,16 @@ if($imageinfo['mime'] != 'image/jpeg' && $imageinfo['mime'] != 'image/gif' && $i
 if(!move_uploaded_file($file['tmp_name'], $file_dist))
 	echo 'Не переместили файл:'.$filename;
 echo 'Переместили файл:'.$filename;
+
+// simpleimage
+if (!is_dir('../files/processed/'))
+    mkdir('../files/processed/', 0777);
+
+$img = new SimpleImage();
+
+$img->load($file_dist)->thumbnail(100, 75)->save('../files/processed/'.$filename.'_trumb'.$type);
+echo '<br>Фото обработано. Trumb сделан.';
+
+
 
 ?>
