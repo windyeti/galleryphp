@@ -3,6 +3,7 @@ namespace abeautifulsite;
 use Exception;
 
 require '../lib/SimpleImage/src/abeautifulsite/SimpleImage.php';
+require('../db.php');
 
 if(empty($_POST) || empty($_FILES)) {
 	print_r($_POST);
@@ -59,6 +60,24 @@ $img = new SimpleImage();
 
 $img->load($file_dist)->thumbnail(100, 75)->save('../files/processed/'.$filename.'_trumb'.$type);
 echo '<br>Фото обработано. Trumb сделан.';
+
+// пробуем запрос к БД gallery. предварительно занес парочку с помощью phpmyadmin, подключили db.php
+$sql = 'SELECT *  FROM users';
+$res = $DB->query($sql);
+
+if($res[0]) {
+	$users = array();
+	foreach($res as $value) {
+		$users[] = $value;
+	}
+	print_r($users[0]);
+}
+// ----------------> сделать вывод страницу в формлении html <-------------------------------------------
+
+// внесем в БД данные из нашего запроса -34.56
+
+
+
 
 
 
